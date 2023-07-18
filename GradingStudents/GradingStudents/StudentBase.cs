@@ -1,5 +1,4 @@
-﻿
-namespace GradingStudents
+﻿namespace GradingStudents
 {
     public abstract class StudentBase : IStudent
     {
