@@ -1,20 +1,11 @@
-﻿using GradingStudents;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GradingStudents
+﻿namespace GradingStudents
 {
     public class Statistics
     {
-
         public double High;
         public double Low;
         public double Sum;
         public int Count;
-
-
         public Statistics()
         {
             Count = 0;
@@ -22,7 +13,6 @@ namespace GradingStudents
             High = double.MinValue;
             Low = double.MaxValue;
         }
-
         public double Average
         {
             get
@@ -30,7 +20,6 @@ namespace GradingStudents
                 return Sum / Count;
             }
         }
-
         public void Add(double number)
         {
             Sum += number;
@@ -39,5 +28,4 @@ namespace GradingStudents
             High = Math.Max(number, High);
         }
     }
-
 }

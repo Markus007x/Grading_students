@@ -1,11 +1,7 @@
-﻿using GradingStudents;
-using System;
-
-namespace GradingStudents
+﻿namespace GradingStudents
 {
     internal class Program
     {
-
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello to the University app.");
@@ -20,10 +16,8 @@ namespace GradingStudents
                     "2 - Add grades to the .txt file\n" +
                     "Q - Close app\n");
 
-
                 Console.WriteLine("Press key 1, 2 or Q: ");
                 var userInput = Console.ReadLine().ToUpper();
-
 
                 switch (userInput)
                 {
@@ -44,11 +38,6 @@ namespace GradingStudents
             Console.WriteLine("\nGood Bye. Press any key to leave.");
             Console.ReadKey();
         }
-
-
-
-
-
         private static void AddGradesToMemory()
         {
             string firstName = GetValueFromUser("Please insert student's first name: ");
@@ -64,9 +53,6 @@ namespace GradingStudents
                 Console.WriteLine("Student's firstname and lastname can not be empty!");
             }
         }
-
-
-
         private static void AddGradesToTxtFile()
         {
             string firstName = GetValueFromUser("Please insert student's first name: ");
@@ -82,8 +68,6 @@ namespace GradingStudents
                 Console.WriteLine("Student's firstname and lastname can not be empty!");
             }
         }
-
-
 
         private static void EnterGrade(IStudent student)
         {
@@ -117,8 +101,6 @@ namespace GradingStudents
                 }
             }
         }
-
-
         private static string GetValueFromUser(string comment)
         {
             Console.WriteLine(comment);

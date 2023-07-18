@@ -1,24 +1,15 @@
-﻿
-using GradingStudents;
-using System;
-
-using System.Collections.Generic;
-
-using System.Text;
-
+﻿using System.Text;
 
 namespace GradingStudents
 {
     public class StudentInMemory : StudentBase
     {
-
         private List<double> grades;
 
         private string firstName;
+
         private string lastName;
-
-
-        public override string FirstName
+        public string FirstName
         {
             get
             {
@@ -33,39 +24,27 @@ namespace GradingStudents
                 }
             }
         }
-
-
-
-        public override string LastName
+        public string LastName
         {
-
             get
             {
                 return (lastName);
             }
             set
             {
-
                 if (!string.IsNullOrEmpty(value))
                 {
                     lastName = value;
                 }
             }
         }
-
-
-
         public StudentInMemory(string firstName, string lastName) : base(firstName, lastName)
         {
             grades = new List<double>();
         }
-
-
-
         public void ChangeStudentName(string newName)
         {
             string oldName = this.FirstName;
-
             foreach (char c in newName)
             {
                 if (char.IsDigit(c))
@@ -79,9 +58,6 @@ namespace GradingStudents
                 }
             }
         }
-
-
-
         public override void AddGrade(double grade)
         {
             if (grade > 0 && grade <= 6)
@@ -110,11 +86,7 @@ namespace GradingStudents
             }
             Console.WriteLine($"\n{sb}");
         }
-
-
-
         public override Statistics GetStatistics()
-
         {
             var result = new Statistics();
 
@@ -123,10 +95,7 @@ namespace GradingStudents
                 result.Add(grade);
             }
             return result;
-
         }
-
     }
-
 }
 

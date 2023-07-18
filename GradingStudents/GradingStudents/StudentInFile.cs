@@ -1,11 +1,4 @@
-﻿
-using GradingStudents;
-using System;
-
-using System.IO;
-
-using System.Text;
-
+﻿using System.Text;
 
 namespace GradingStudents
 {
@@ -15,8 +8,7 @@ namespace GradingStudents
         private string firstName;
         private string lastName;
         private string fullNameAndSurname;
-
-        public override string FirstName
+        public string FirstName
         {
             get
             {
@@ -30,12 +22,11 @@ namespace GradingStudents
                 }
             }
         }
-
-        public override string LastName
+        public string LastName
         {
             get
             {
-                return (LastName);
+                return (lastName);
             }
             set
             {
@@ -45,15 +36,11 @@ namespace GradingStudents
                 }
             }
         }
-
-
         public StudentInFile(string firstName, string lastName)
                         : base(firstName, lastName)
         {
             fullNameAndSurname = ($"{firstName}_{lastName}{fileName}");
         }
-
-
         public override void AddGrade(double grade)
         {
             if (grade > 0 && grade <= 6)
@@ -62,8 +49,7 @@ namespace GradingStudents
                 using (var writer2 = File.AppendText($"CheckingStudent.txt"))
                 {
                     writer.WriteLine(grade);
-                    writer2.WriteLine($"{FirstName} {LastName} - {grade} {DateTime.UtcNow}");
-
+                    writer2.WriteLine($"{firstName} {lastName} - {grade} {DateTime.UtcNow}");
                 }
             }
             else
@@ -71,11 +57,9 @@ namespace GradingStudents
                 throw new ArgumentException($"Invalid argument: {nameof(grade)}. Only grades from 1 to 6 are allowed!");
             }
         }
-
-
         public override void ShowResult()
         {
-            StringBuilder sb = new StringBuilder($"{this.FirstName} {this.LastName} grades are: ");
+            StringBuilder sb = new StringBuilder($"{this.FirstName} {this.lastName} grades are: ");
 
             using (var reader = File.OpenText(($"{fullNameAndSurname}")))
             {
@@ -88,9 +72,6 @@ namespace GradingStudents
             }
             Console.WriteLine($"\n{sb}");
         }
-
-
-
         public override Statistics GetStatistics()
         {
             var result = new Statistics();
