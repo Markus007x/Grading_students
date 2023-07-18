@@ -1,12 +1,9 @@
-using System;
-using NUnit;
-using GradingStudents;
+using NUnit.Framework;
 
 namespace GradingStudents
 {
     public class UnitTest
     {
-        [Test]
         public void Test1()
         {
             // arrange
